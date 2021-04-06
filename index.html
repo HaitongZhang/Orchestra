@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Github Page demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="index.js"></script>
+</head>
+<body>
+    <div id="main-content"></div>
+
+    <p><a href="https://haitongzhang.github.io/Orchestra/">Clip here to read the paper!</a></p>
+
+    <p><b>Abstract:</b></p> 
+    
+
+
+
+    <p>Usually, text-to-speech and voice conversion is considered as two tasks and tackled by separate models. In this paper, we proposed a multi-modal voice cloning system called Orchestra, which aims to support text-to-speech (TTS) and voice conversion (VC) simultaneously. The system mainly contains three modules. The first module is vector-quantization Variational-Autoencoder (VQ-VAE), which aims to extract unsupervised linguistic units given audio. The second module is a Tacotron2-like sequence-to-sequence model, which generates mel-spectrogram given either unsupervised linguistic units or phonemes. The third module is a neural vocoder to generate waveform conditioned on mel-spectrogram. We evaluate our proposed system in both TTS and VC. In the TTS task, we found that the proposed system gives a comparable performance to Tacotron2 in the multi-speaker setting. When cloning new voices using 2-minute data, the proposed system outperforms Tacotron2 on almost all evaluation metrics. In the VC task, we found that the proposed system can significantly improve the conversion performance, compared with the VQ-VAE based VC system.</p>
+
+    <p><strong><mark>Results on the multi-speaker TTS scenario</mark></strong></p>
+
+
+    <p>These samples refer to Section 3.4 of our paper, which demostrate our proposed syetem (Orchestra) achieves comparable performance to Tacotron in the multi-speaker TTS scenario.</p>
+
+
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Tacotron &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Orchestra (Our proposed system) </b></p>
+
+    <p><b>Speaker p227:</b></p>
+
+    <p><i>Text: "PLEASE CALL STELLA."</i></p>
+
+    <audio controls>
+        <source src="wavs/TTS/p227/system0/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p227/system1/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p227/system2/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+    <p><i>Text: "ASK HER TO BRING THESE THINGS WITH HER FROM THE STORE"</i></p>
+
+    <audio controls>
+        <source src="wavs/TTS/p227/system0/p227_002.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p227/system1/p227_002.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p227/system2/p227_002.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <p><b>Speaker p228:</b></p>
+
+    <p><i>Text: "JIM WALLACE JUSTICE MINISTER HAS REFUSED TO HOLD AN INQUIRY."</i></p>
+        
+    <audio controls>
+        <source src="wavs/TTS/p228/system0/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p228/system1/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p228/system2/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+    <p><i>Text: "IT'S A WAY OF LIFE."</i></p>
+
+    <audio controls>
+        <source src="wavs/TTS/p228/system0/p228_271.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p228/system1/p228_271.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p228/system2/p228_271.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+
+    <p><strong><mark>Results on speaker adaptation scenario</mark></strong></p>
+
+    <p>These samples refer to Section 3.5 of our paper, in which we investigate the effectiveness of our proposed system in both supervised speaker adaptation (SSA) and unsupervised speaker adaptation (USA). The model variants include:</p>
+
+    <p><strong>Tacotron:</strong> Tacotron in the TTS scenario fine-tuned  (1) using <phonemes, audio> in SSA; (2) using <phonemes_ASR, audio> in USA;</p>
+    <p><strong>Orchestra:</strong> Orchestra in the TTS scenario fine-tuned (1) using both <phonemes, audio> and <ULUs, audio> in SSA; (2) using < ULUs, audio> in USA;</p>
+
+
+
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Supervised speaker adaptation (SSA)  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp    Unsupervised speaker adaptation (USA) &nbsp &nbsp &nbsp &nbsp  </b></p>
+
+<!--    <p><strong><mark>Supervised speaker adaptation (SSA)</mark></strong></p>-->
+
+
+    <p><b>Speaker p225:</b></p>
+
+    <p><i>Text: "YOU ARE A GREAT PLAYER."</i></p>
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system0/p225_208.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system1/p225_208.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system2/p225_208.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system3/p225_208.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system4/p225_208.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+    <p><i>Text: "SCOTLAND WILL PLAY ITS PART."</i></p>
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+    <p><b>Speaker p226:</b></p>
+
+    <p><i>Text: "THAT DECISION IS FOR THE BRITISH PARLIAMENT AND PEOPLE."</i></p>
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system0/p226_268.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system1/p226_268.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system2/p226_268.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system3/p226_268.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system4/p226_268.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+
+    <p><i>Text: "THEY ARE NEVER HERE."</i></p>
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system0/p226_269.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system1/p226_269.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system2/p226_269.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system3/p226_269.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p226/system4/p226_269.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+
+    <p><strong><mark>Results on any-to-one voice conversion</mark></strong></p>
+
+
+    <p>These samples refer to Section 3.6 of our paper. We chose p227 and p228 as the source speakers,  and p225 and p226 as the target speakers. The model variants in this scenario include: </p>
+
+        <p><strong>VQ-VAE:</strong> The VQ-VAE module trained with training data from all speakers except for the source and target speakers, then fine-tuned with 2-minute data from the target speakers.</p>
+
+        <p><strong>Tacotron+ASR:</strong>  The multi-speaker Tacotron trained as in the TTS scenario, fine-tuned using < phonemes ASR, audio>; when conversion, phonemes ASR are used;</p>
+
+        <p><strong>Orchestra+VQ:</strong>  The multi-speaker Orchestra trained as in the TTS scenario, fine-tuned using < ULUs, audio>; when conversion, ULUs are used; </p>
+
+        <p><strong>Orchestra+ASR:</strong>  The multi-speaker Orchestra trained as in the TTS scenario, fine-tuned using < phonemes ASR, audio>; when conversion, phonemes ASR are used;</p>
+
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Source
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp VQ-VAE
+        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp    Tacotron+ASR
+        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp Orchestra+VQ
+        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp Orchestra+ASR
+        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp Target</b></p>
+
+
+    <p><b>p227-p225 (M-F)</b></p>
+
+     <audio controls>
+        <source src="wavs/VC/p225/source/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system1/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system2/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system3/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system4/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/target/p225/p225_366.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+    <p><b>p227-p226 (M-M)</b></p>
+
+     <audio controls>
+        <source src="wavs/VC/p226/source/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system1/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system2/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system3/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system4/p227/p227_001.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/target/p226/p226_370.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+
+
+    <p><b>p228-p225 (F-F)</b></p>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/source/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system1/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system2/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system3/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/system4/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p225/target/p225/p225_366.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+
+
+    <p><b>p228-p226 (F-M)</b></p>
+
+     <audio controls>
+        <source src="wavs/VC/p226/source/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system1/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system2/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system3/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/system4/p228/p228_270.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+     <audio controls>
+        <source src="wavs/VC/p226/target/p226/p226_370.wav" type="audio/wav">
+        您的浏览器不支持该音频格式。
+    </audio>
+
+
+
+
+    </div>
+</body>
+</html>
