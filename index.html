@@ -18,9 +18,9 @@
 
 
 
-    <p>Usually, text-to-speech and voice conversion is considered as two tasks and tackled by separate models. In this paper, we proposed a multi-modal voice cloning system called Orchestra, which aims to support text-to-speech (TTS) and voice conversion (VC) simultaneously. The system mainly contains three modules. The first module is vector-quantization Variational-Autoencoder (VQ-VAE), which aims to extract unsupervised linguistic units given audio. The second module is a Tacotron2-like sequence-to-sequence model, which generates mel-spectrogram given either unsupervised linguistic units or phonemes. The third module is a neural vocoder to generate waveform conditioned on mel-spectrogram. We evaluate our proposed system in both TTS and VC. In the TTS task, we found that the proposed system gives a comparable performance to Tacotron2 in the multi-speaker setting. When cloning new voices using 2-minute data, the proposed system outperforms Tacotron2 on almost all evaluation metrics. In the VC task, we found that the proposed system can significantly improve the conversion performance, compared with the VQ-VAE based VC system.</p>
+    <p> Recently, few-shot voice cloning has achieved a significant improvement. However, most models for few-shot voice cloning are single-modal, and multi-modal few-shot voice cloning has been understudied. In this paper, we propose to use multi-modal learning to improve the few-shot voice cloning performance. Inspired by the recent works on unsupervised speech representation, the proposed multi-modal system is built by extending Tacotron2 with an unsupervised speech representation module. We evaluate our proposed system in two few-shot voice cloning scenarios, namely few-shot text-to-speech~(TTS) and voice conversion~(VC). Experimental results demonstrate that the proposed multi-modal learning can significantly improve the few-shot voice cloning performance over their counterpart single-modal systems.</p>
 
-    <p><strong><mark>Results on the multi-speaker TTS scenario</mark></strong></p>
+    <!-- <p><strong><mark>Results on the multi-speaker TTS scenario</mark></strong></p>
 
 
     <p>These samples refer to Section 3.4 of our paper, which demostrate our proposed syetem (Orchestra) achieves comparable performance to Tacotron in the multi-speaker TTS scenario.</p>
@@ -109,22 +109,22 @@
         您的浏览器不支持该音频格式。
     </audio>
 
+    -->
+
+
+    <p><strong><mark>Few-shot TTS scenario</mark></strong></p>
+
+    <p>These samples refer to Section 4.1 in the paper, in which we investigate the effectiveness of our proposed system in few-shot TTS. The models investigated include:</p>
+
+    <p><strong>Tacotron:</strong> Tacotron2 pre-trained using $<$ phonemes, audio$>$ paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute $<$ phonemes, audio$>$ paired data from the target speakers (namely p225 and p226);</p>
+    <p><strong>MD-Tacotron:</strong> The proposed system pre-trained using $<$ phonemes, audio$>$ and $<$ ULUs, audio$>$ paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute $<$ phonemes, audio$>$ and $<$ ULUs, audio$>$ paired data from the target speakers (namely p225 and p226);</p>
 
 
 
-    <p><strong><mark>Results on speaker adaptation scenario</mark></strong></p>
-
-    <p>These samples refer to Section 3.5 of our paper, in which we investigate the effectiveness of our proposed system in both supervised speaker adaptation (SSA) and unsupervised speaker adaptation (USA). The model variants include:</p>
-
-    <p><strong>Tacotron:</strong> Tacotron in the TTS scenario fine-tuned  (1) using < phonemes, audio> in SSA; (2) using < phonemes_ASR, audio> in USA;</p>
-    <p><strong>Orchestra:</strong> Orchestra in the TTS scenario fine-tuned (1) using both < phonemes, audio> and < ULUs, audio> in SSA; (2) using < ULUs, audio> in USA;</p>
-
-
-
-    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Supervised speaker adaptation (SSA)  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp    Unsupervised speaker adaptation (USA) &nbsp &nbsp &nbsp &nbsp  </b></p>
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp  </b></p>
 
 <!--    <p><strong><mark>Supervised speaker adaptation (SSA)</mark></strong></p>-->
-    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp Tacotron   &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp Orchestra  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp   &nbsp  &nbsp &nbsp    Tacotron  &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp Orchestra &nbsp &nbsp &nbsp &nbsp  </b></p>
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp Tacotron   &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp MD-Tacotron  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbs </b></p>
 
 
     <p><b>Speaker p225:</b></p>
@@ -149,7 +149,7 @@
     </audio>
 
 
-    <audio controls>
+    <!--<audio controls>
         <source src="wavs/TTS/p225/system3/p225_208.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
     </audio>
@@ -159,6 +159,7 @@
         <source src="wavs/TTS/p225/system4/p225_208.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
     </audio>
+    -->
 
 
 
@@ -170,6 +171,18 @@
     </audio>
 
     <audio controls>
+        <source src="wavs/TTS/p225/system1/p225_210.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+    <audio controls>
+        <source src="wavs/TTS/p225/system2/p225_210.wav" type="audio/wav">
+            您的浏览器不支持该音频格式。
+    </audio>
+
+
+    <!--
+    <audio controls>
         <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
     </audio>
@@ -179,18 +192,7 @@
             您的浏览器不支持该音频格式。
     </audio>
 
-
-    <audio controls>
-        <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
-            您的浏览器不支持该音频格式。
-    </audio>
-
-    <audio controls>
-        <source src="wavs/TTS/p225/system0/p225_210.wav" type="audio/wav">
-            您的浏览器不支持该音频格式。
-    </audio>
-
-
+    -->
 
     <p><b>Speaker p226:</b></p>
 
@@ -212,6 +214,7 @@
     </audio>
 
 
+    <!--
     <audio controls>
         <source src="wavs/TTS/p226/system3/p226_268.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
@@ -222,7 +225,7 @@
         <source src="wavs/TTS/p226/system4/p226_268.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
 
 
@@ -244,6 +247,7 @@
     </audio>
 
 
+    <!--
     <audio controls>
         <source src="wavs/TTS/p226/system3/p226_269.wav" type="audio/wav">
             您的浏览器不支持该音频格式。
@@ -254,27 +258,22 @@
             您的浏览器不支持该音频格式。
     </audio>
 
+    -->
 
 
+    <p><strong><mark>Few-shot voice conversion</mark></strong></p>
 
-    <p><strong><mark>Results on any-to-one voice conversion</mark></strong></p>
 
+    <p>These samples refer to Section 4.2 in the paper. We chose p227 and p228 as the source speakers,  and p225 and p226 as the target speakers. The model variants in this scenario include: </p>
 
-    <p>These samples refer to Section 3.6 of our paper. We chose p227 and p228 as the source speakers,  and p225 and p226 as the target speakers. The model variants in this scenario include: </p>
+        <p><strong>VQ-VAE:</strong> VQ-VAE:  The single-modal VQ-VAE model pre-trained with speech data from 104 speakers (excluding the source and target speakers), then fine-tuned using 2-minute speech data from the target speakers;</p>
 
-        <p><strong>VQ-VAE:</strong> The VQ-VAE module trained with training data from all speakers except for the source and target speakers, then fine-tuned with 2-minute data from the target speakers.</p>
+        <p><strong>MD-Tacotron:</strong>  The proposed multi-modal system pre-trained with speech data from 104 speakers (excluding the source and target speakers); then only the seq-to-seq module fine-tuned using 2-minute $<$ ULUs, audio$>$ paired data from the target speakers;</p>
 
-        <p><strong>Tacotron+ASR:</strong>  The multi-speaker Tacotron trained as in the TTS scenario, fine-tuned using < phonemes ASR, audio>; when conversion, phonemes ASR are used;</p>
-
-        <p><strong>Orchestra+VQ:</strong>  The multi-speaker Orchestra trained as in the TTS scenario, fine-tuned using < ULUs, audio>; when conversion, ULUs are used; </p>
-
-        <p><strong>Orchestra+ASR:</strong>  The multi-speaker Orchestra trained as in the TTS scenario, fine-tuned using < phonemes ASR, audio>; when conversion, phonemes ASR are used;</p>
 
     <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Source
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp VQ-VAE
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Tacotron+ASR
-        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp   Orchestra+VQ
-        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp  Orchestra+ASR
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  MD-Tacotron
         &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp Target</b></p>
 
 
@@ -292,23 +291,24 @@
     </audio>
 
 
+    <!--
      <audio controls>
         <source src="wavs/VC/p225/system2/p227/p227_001.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p225/system3/p227/p227_001.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
 
-
+    <!--
      <audio controls>
         <source src="wavs/VC/p225/system4/p227/p227_001.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p225/target/p225/p225_366.wav" type="audio/wav">
@@ -324,30 +324,30 @@
         您的浏览器不支持该音频格式。
     </audio>
 
-
      <audio controls>
         <source src="wavs/VC/p226/system1/p227/p227_001.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
 
-
+    <!--
      <audio controls>
         <source src="wavs/VC/p226/system2/p227/p227_001.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p226/system3/p227/p227_001.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
 
-
+    
+    <!--
      <audio controls>
         <source src="wavs/VC/p226/system4/p227/p227_001.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p226/target/p226/p226_370.wav" type="audio/wav">
@@ -373,11 +373,12 @@
     </audio>
 
 
+    <!--
      <audio controls>
         <source src="wavs/VC/p225/system2/p228/p228_270.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p225/system3/p228/p228_270.wav" type="audio/wav">
@@ -385,11 +386,12 @@
     </audio>
 
 
+     <!--
      <audio controls>
         <source src="wavs/VC/p225/system4/p228/p228_270.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p225/target/p225/p225_366.wav" type="audio/wav">
@@ -414,24 +416,24 @@
     </audio>
 
 
-
+    <!--
      <audio controls>
         <source src="wavs/VC/p226/system2/p228/p228_270.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p226/system3/p228/p228_270.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
 
-
+    <!--
      <audio controls>
         <source src="wavs/VC/p226/system4/p228/p228_270.wav" type="audio/wav">
         您的浏览器不支持该音频格式。
     </audio>
-
+    -->
 
      <audio controls>
         <source src="wavs/VC/p226/target/p226/p226_370.wav" type="audio/wav">
