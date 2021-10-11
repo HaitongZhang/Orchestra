@@ -18,7 +18,7 @@
 
 
 
-    <p> Recently, few-shot voice cloning has achieved a significant improvement. However, most models for few-shot voice cloning are single-modal, and multi-modal few-shot voice cloning has been understudied. In this paper, we propose to use multi-modal learning to improve the few-shot voice cloning performance. Inspired by the recent works on unsupervised speech representation, the proposed multi-modal system is built by extending Tacotron2 with an unsupervised speech representation module. We evaluate our proposed system in two few-shot voice cloning scenarios, namely few-shot text-to-speech~(TTS) and voice conversion~(VC). Experimental results demonstrate that the proposed multi-modal learning can significantly improve the few-shot voice cloning performance over their counterpart single-modal systems.</p>
+    <p> Recently, few-shot voice cloning has achieved a significant improvement. However, most models for few-shot voice cloning are single-modal, and multi-modal few-shot voice cloning has been understudied. In this paper, we propose to use multi-modal learning to improve the few-shot voice cloning performance. Inspired by the recent works on unsupervised speech representation, the proposed multi-modal system is built by extending Tacotron2 with an unsupervised speech representation module. We evaluate our proposed system in two few-shot voice cloning scenarios, namely few-shot text-to-speech(TTS) and voice conversion(VC). Experimental results demonstrate that the proposed multi-modal learning can significantly improve the few-shot voice cloning performance over their counterpart single-modal systems.</p>
 
     <!-- <p><strong><mark>Results on the multi-speaker TTS scenario</mark></strong></p>
 
@@ -116,15 +116,14 @@
 
     <p>These samples refer to Section 4.1 in the paper, in which we investigate the effectiveness of our proposed system in few-shot TTS. The models investigated include:</p>
 
-    <p><strong>Tacotron:</strong> Tacotron2 pre-trained using $<$ phonemes, audio$>$ paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute $<$ phonemes, audio$>$ paired data from the target speakers (namely p225 and p226);</p>
-    <p><strong>MD-Tacotron:</strong> The proposed system pre-trained using $<$ phonemes, audio$>$ and $<$ ULUs, audio$>$ paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute $<$ phonemes, audio$>$ and $<$ ULUs, audio$>$ paired data from the target speakers (namely p225 and p226);</p>
+    <p><strong>Tacotron:</strong> Tacotron2 pre-trained using <phonemes, audio> paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute <phonemes, audio> paired data from the target speakers (namely p225 and p226);</p>
+    <p><strong>MD-Tacotron:</strong> The proposed system pre-trained using <phonemes, audio>$and <ULUs, audio> paired data from 106 speakers (excluding p225 and p226), then fine-tuned using 2-minute <phonemes, audio> and <ULUs, audio> paired data from the target speakers (namely p225 and p226);</p>
 
 
 
-    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp  </b></p>
 
 <!--    <p><strong><mark>Supervised speaker adaptation (SSA)</mark></strong></p>-->
-    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp Tacotron   &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp MD-Tacotron  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbs </b></p>
+    <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ground-Truth &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Tacotron   &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp  MD-Tacotron  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp </b></p>
 
 
     <p><b>Speaker p225:</b></p>
@@ -268,13 +267,13 @@
 
         <p><strong>VQ-VAE:</strong> VQ-VAE:  The single-modal VQ-VAE model pre-trained with speech data from 104 speakers (excluding the source and target speakers), then fine-tuned using 2-minute speech data from the target speakers;</p>
 
-        <p><strong>MD-Tacotron:</strong>  The proposed multi-modal system pre-trained with speech data from 104 speakers (excluding the source and target speakers); then only the seq-to-seq module fine-tuned using 2-minute $<$ ULUs, audio$>$ paired data from the target speakers;</p>
+        <p><strong>MD-Tacotron:</strong>  The proposed multi-modal system pre-trained with speech data from 104 speakers (excluding the source and target speakers); then only the seq-to-seq module fine-tuned using 2-minute <ULUs, audio> paired data from the target speakers;</p>
 
 
     <p><b>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Source
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp VQ-VAE
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp VQ-VAE
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  MD-Tacotron
-        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp Target</b></p>
+        &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbs Target</b></p>
 
 
     <p><b>p227-p225 (M-F)</b></p>
